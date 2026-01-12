@@ -4,23 +4,21 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Gallery', href: '/gallery' },
+  { name: 'Gallery', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
 ]
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-bark-800 text-cream-50">
+    <header className="bg-bark-900 text-cream-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <span className="text-2xl font-display font-semibold">
-              Charles Gunther
+            <span className="text-base font-display font-thin tracking-tight">
+              Wildfowl Carvings by Charles Gunther
             </span>
           </Link>
 
@@ -62,7 +60,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-bark-700">
+          <div className="md:hidden py-4 border-t border-bark-800">
             {navigation.map((item) => (
               <Link
                 key={item.name}

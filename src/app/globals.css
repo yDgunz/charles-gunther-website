@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500&display=swap');
 
 @layer base {
   html {
@@ -10,29 +10,29 @@
   }
 
   body {
-    @apply bg-cream-50 text-bark-900 font-serif;
+    @apply bg-cream-50 text-bark-900 font-sans text-sm;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    @apply font-display font-normal;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-bark-700 text-cream-50 px-6 py-3 rounded hover:bg-bark-800 transition-colors font-medium;
+    @apply bg-bark-800 text-cream-50 px-6 py-3 hover:bg-bark-900 transition-colors font-medium;
   }
 
   .btn-secondary {
-    @apply border-2 border-bark-700 text-bark-700 px-6 py-3 rounded hover:bg-bark-700 hover:text-cream-50 transition-colors font-medium;
+    @apply border-2 border-bark-800 text-bark-800 px-6 py-3 hover:bg-bark-800 hover:text-cream-50 transition-colors font-medium;
   }
 
   .section-heading {
-    @apply text-3xl md:text-4xl font-display text-bark-800 mb-6;
+    @apply text-2xl md:text-3xl font-display text-bark-900 mb-5;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow;
+    @apply bg-white shadow-md overflow-hidden hover:shadow-lg transition-shadow;
   }
 }
 

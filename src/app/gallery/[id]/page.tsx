@@ -40,24 +40,24 @@ export default function PiecePage({ params }: { params: Promise<{ id: string }> 
   const images = Array.from({ length: piece.imageCount }, (_, i) => `${i + 1}.jpg`)
 
   return (
-    <div className="py-12 md:py-16">
+    <div className="py-8 md:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
-          href="/gallery"
-          className="inline-flex items-center text-bark-600 hover:text-bark-800 mb-8"
+          href="/"
+          className="inline-flex items-center text-bark-600 hover:text-bark-800 mb-6"
         >
-          <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-3 h-3 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          Back to Gallery
+          Back
         </Link>
 
-        <h1 className="text-3xl md:text-4xl font-display font-bold text-bark-800 mb-8">
+        <h1 className="text-xl md:text-2xl font-display font-normal text-bark-900 mb-6">
           {piece.title}
         </h1>
 
         {/* Main Image */}
-        <div className="aspect-square bg-bark-100 relative rounded-lg overflow-hidden mb-4">
+        <div className="aspect-square bg-bark-100 relative overflow-hidden mb-4">
           <Image
             src={`/pieces/${piece.folder}/${images[selectedImage]}`}
             alt={`${piece.title} - Image ${selectedImage + 1}`}
@@ -75,8 +75,8 @@ export default function PiecePage({ params }: { params: Promise<{ id: string }> 
               <button
                 key={img}
                 onClick={() => setSelectedImage(index)}
-                className={`aspect-square relative rounded overflow-hidden ${
-                  selectedImage === index ? 'ring-2 ring-bark-700' : 'opacity-70 hover:opacity-100'
+                className={`aspect-square relative overflow-hidden ${
+                  selectedImage === index ? 'ring-2 ring-bark-800' : 'opacity-70 hover:opacity-100'
                 }`}
               >
                 <Image
