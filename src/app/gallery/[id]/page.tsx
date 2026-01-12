@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { use, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -28,9 +28,10 @@ const pieces: Record<string, { title: string; folder: string; imageCount: number
   'wigeon': { title: 'American Wigeon', folder: 'smoothies/wigeon', imageCount: 3 },
 }
 
-export default function PiecePage({ params }: { params: { id: string } }) {
+export default function PiecePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
   const [selectedImage, setSelectedImage] = useState(0)
-  const piece = pieces[params.id]
+  const piece = pieces[id]
 
   if (!piece) {
     notFound()
