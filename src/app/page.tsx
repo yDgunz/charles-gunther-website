@@ -1,42 +1,37 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-const featuredPieces = [
+const pieces = [
+  { id: 'black_duck', title: 'Black Duck', folder: 'decorative/black_duck' },
+  { id: 'blue_wing_teal', title: 'Blue Winged Teal', folder: 'decorative/blue_wing_teal' },
+  { id: 'canada_goose', title: 'Canada Goose', folder: 'decorative/canada_goose' },
   { id: 'hornbill', title: "Blyth's Hornbill", folder: 'decorative/hornbill' },
-  { id: 'great_horned_owl', title: 'Great Horned Owl', folder: 'birds_of_prey/great_horned_owl' },
   { id: 'loon', title: 'Common Loon', folder: 'decorative/loon' },
+  { id: 'mallard_drake', title: 'Mallard', folder: 'decorative/mallard_drake' },
+  { id: 'pied_bill_grebe', title: 'Pied-billed Grebe', folder: 'decorative/pied_bill_grebe' },
+  { id: 'redhead', title: 'Redhead', folder: 'decorative/redhead' },
+  { id: 'screech_owl_3', title: 'Screech Owl', folder: 'birds_of_prey/screech_owl_3' },
+  { id: 'kestral', title: 'American Kestrel', folder: 'birds_of_prey/kestral' },
+  { id: 'kestral2', title: 'American Kestrel', folder: 'birds_of_prey/kestral2' },
+  { id: 'peregrine_falcon', title: 'Peregrine Falcon', folder: 'birds_of_prey/peregrine_falcon' },
+  { id: 'screech_owl', title: 'Screech Owl', folder: 'birds_of_prey/screech_owl' },
+  { id: 'screech_owl_2', title: 'Screech Owl', folder: 'birds_of_prey/screech_owl_2' },
+  { id: 'great_horned_owl', title: 'Great Horned Owl', folder: 'birds_of_prey/great_horned_owl' },
+  { id: 'blue_jay', title: 'Blue Jay', folder: 'songbirds/blue_jay' },
+  { id: 'robin', title: 'American Robin', folder: 'songbirds/robin' },
+  { id: 'mallard_hen_smoothie', title: 'Mallard', folder: 'smoothies/mallard_hen_smoothie' },
+  { id: 'pied_bill_grebe_smoothie', title: 'Pied-billed Grebe', folder: 'smoothies/pied_bill_grebe_smoothie' },
+  { id: 'wigeon', title: 'American Wigeon', folder: 'smoothies/wigeon' },
 ]
 
 export default function Home() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative bg-bark-800 text-cream-50 py-24 md:py-32 texture-overlay">
+      {/* Gallery */}
+      <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              Handcrafted Wildfowl Sculptures
-            </h1>
-            <p className="text-xl text-cream-200 mb-8 leading-relaxed">
-              Decorative waterfowl, birds of prey, and songbirds carved with over 30 years
-              of experience and passion for the craft.
-            </p>
-            <Link href="/gallery" className="btn-primary">
-              View Gallery
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Work */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="section-heading">Featured Work</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredPieces.map((piece) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pieces.map((piece) => (
               <Link key={piece.id} href={`/gallery/${piece.id}`} className="card group">
                 <div className="aspect-[4/3] bg-bark-100 relative overflow-hidden">
                   <Image
@@ -44,22 +39,16 @@ export default function Home() {
                     alt={piece.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-display font-semibold text-bark-800">
+                <div className="p-4">
+                  <h3 className="text-lg font-display font-semibold text-bark-800">
                     {piece.title}
                   </h3>
                 </div>
               </Link>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/gallery" className="btn-secondary">
-              View Full Gallery
-            </Link>
           </div>
         </div>
       </section>
