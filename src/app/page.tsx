@@ -1,36 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
-
-const pieces = [
-  { id: 'black_duck', title: 'Black Duck', folder: 'decorative/black_duck' },
-  { id: 'blue_wing_teal', title: 'Blue Winged Teal', folder: 'decorative/blue_wing_teal' },
-  { id: 'canada_goose', title: 'Canada Goose', folder: 'decorative/canada_goose' },
-  { id: 'hornbill', title: "Blyth's Hornbill", folder: 'decorative/hornbill' },
-  { id: 'loon', title: 'Common Loon', folder: 'decorative/loon' },
-  { id: 'mallard_drake', title: 'Mallard', folder: 'decorative/mallard_drake' },
-  { id: 'pied_bill_grebe', title: 'Pied-billed Grebe', folder: 'decorative/pied_bill_grebe' },
-  { id: 'redhead', title: 'Redhead', folder: 'decorative/redhead' },
-  { id: 'screech_owl_3', title: 'Screech Owl', folder: 'birds_of_prey/screech_owl_3' },
-  { id: 'kestral', title: 'American Kestrel', folder: 'birds_of_prey/kestral' },
-  { id: 'kestral2', title: 'American Kestrel', folder: 'birds_of_prey/kestral2' },
-  { id: 'peregrine_falcon', title: 'Peregrine Falcon', folder: 'birds_of_prey/peregrine_falcon' },
-  { id: 'screech_owl', title: 'Screech Owl', folder: 'birds_of_prey/screech_owl' },
-  { id: 'screech_owl_2', title: 'Screech Owl', folder: 'birds_of_prey/screech_owl_2' },
-  { id: 'great_horned_owl', title: 'Great Horned Owl', folder: 'birds_of_prey/great_horned_owl' },
-  { id: 'blue_jay', title: 'Blue Jay', folder: 'songbirds/blue_jay' },
-  { id: 'robin', title: 'American Robin', folder: 'songbirds/robin' },
-  { id: 'mallard_hen_smoothie', title: 'Mallard', folder: 'smoothies/mallard_hen_smoothie' },
-  { id: 'pied_bill_grebe_smoothie', title: 'Pied-billed Grebe', folder: 'smoothies/pied_bill_grebe_smoothie' },
-  { id: 'wigeon', title: 'American Wigeon', folder: 'smoothies/wigeon' },
-]
+import { pieces } from '@/data/pieces'
 
 export default function Home() {
   return (
     <div className="py-8 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-bark-700 mb-6">
-          Decorative wildfowl carvings by Charles Gunther, New Jersey.
-        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {pieces.map((piece) => (
             <Link key={piece.id} href={`/gallery/${piece.id}`} className="card group">

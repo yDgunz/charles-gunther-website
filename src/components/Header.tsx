@@ -39,15 +39,18 @@ export default function Header() {
           <button
             type="button"
             className="md:hidden p-2"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <span className="sr-only">Open menu</span>
+            <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
             <svg
               className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
+              aria-hidden="true"
             >
               {mobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -60,7 +63,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-bark-800">
+          <div id="mobile-menu" className="md:hidden py-4 border-t border-bark-800">
             {navigation.map((item) => (
               <Link
                 key={item.name}
