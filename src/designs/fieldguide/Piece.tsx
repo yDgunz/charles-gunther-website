@@ -22,9 +22,9 @@ export default function PiecePage({ piece }: { piece: Piece }) {
   return (
     <article className="px-5 py-8 lg:px-12 lg:py-12 max-w-5xl">
       <nav className="text-[11px] uppercase tracking-[0.2em] text-moss-700">
-        <Link href="/" className="hover:text-rust-700">Plates</Link>
+        <Link href="/gallery" className="hover:text-rust-700">Plates</Link>
         <span className="mx-2">/</span>
-        <Link href={`/#${category.id}`} className="hover:text-rust-700">{category.name}</Link>
+        <Link href={`/gallery#${category.id}`} className="hover:text-rust-700">{category.name}</Link>
       </nav>
 
       <div className="mt-4 flex items-baseline gap-4">

@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { bio, commissions, competitions, honors, portraits, process, pullQuote, site } from '@/designs/content'
+import Link from 'next/link'
+import { bio, commissions, portraits, process, pullQuote, site } from '@/designs/content'
 
 export default function About() {
   return (
@@ -37,43 +38,37 @@ export default function About() {
             &ldquo;{pullQuote}&rdquo;
           </blockquote>
 
-          <div className="mt-10 border-t border-ink-200 pt-6">
-            <h2 className="text-[11px] uppercase tracking-[0.2em] text-ink-500">Competition</h2>
-            <ul className="mt-3 space-y-2 text-sm">
-              {competitions.map((competition) => (
-                <li key={competition.name} className="flex flex-wrap justify-between gap-x-4">
-                  <span>{competition.name}</span>
-                  <span className="text-ink-500">{competition.place}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-3 text-sm text-ink-600">{honors}</p>
-          </div>
         </div>
       </div>
 
       <section className="mt-16 md:mt-24 border-t border-ink-200 pt-8">
         <h2 className="text-[11px] uppercase tracking-[0.2em] text-ink-500">Process</h2>
         <p className="mt-2 font-cormorant text-2xl md:text-3xl">From the bird to the block</p>
-        <ol className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+        <ol className="mt-6 grid grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6">
           {process.map((step, index) => (
             <li key={step.src}>
               <div className="relative aspect-square overflow-hidden bg-ink-100">
-                <Image src={step.src} alt={step.caption} fill sizes="(max-width: 768px) 50vw, 16vw" className="object-cover" />
+                <Image src={step.src} alt={step.title} fill sizes="(max-width: 768px) 33vw, 16vw" className="object-cover" />
               </div>
               <p className="mt-2 text-xs text-ink-600 leading-snug">
                 <span className="text-ink-400 mr-1.5">{String(index + 1).padStart(2, '0')}</span>
-                {step.caption}
+                {step.title}
               </p>
             </li>
           ))}
         </ol>
+        <Link href="/process" className="mt-6 inline-block border-b border-ink-900 pb-1 text-[11px] uppercase tracking-[0.2em] hover:text-ink-600 hover:border-ink-600">
+          Read about the process
+        </Link>
       </section>
 
       <section id="contact" className="mt-16 md:mt-24 border-t border-ink-200 pt-8 scroll-mt-8">
         <h2 className="text-[11px] uppercase tracking-[0.2em] text-ink-500">Contact</h2>
-        <p className="mt-3 max-w-prose text-[15px] text-ink-700 leading-relaxed">{commissions}</p>
-        <div className="mt-5 flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-10">
+        <p className="mt-3 max-w-prose text-[15px] text-ink-700 leading-relaxed">{commissions.lead}</p>
+        <Link href="/commission" className="mt-5 inline-block bg-ink-900 text-ink-50 px-6 py-3 text-[11px] uppercase tracking-[0.2em] hover:bg-ink-700">
+          Commission a piece
+        </Link>
+        <div className="mt-8 flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-10">
           <a href={`mailto:${site.email}`} className="font-cormorant text-2xl md:text-3xl hover:text-ink-600">{site.email}</a>
           <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-[0.2em] text-ink-500 hover:text-ink-900">
             Instagram @{site.instagram}

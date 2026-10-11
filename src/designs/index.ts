@@ -18,13 +18,16 @@ export type Design = {
   blurb: string
   Shell: ComponentType<{ children: ReactNode }>
   Home: ComponentType
+  Gallery: ComponentType
+  Process: ComponentType
+  Commission: ComponentType
   About: ComponentType
   Piece: ComponentType<{ piece: Piece }>
 }
 
 export const designs = {
   current: { id: 'current', tag: 'Now', name: 'Current site', blurb: 'The site as it is today.', ...current },
-  gallery: { id: 'gallery', tag: 'A', name: 'Gallery', blurb: 'White walls and a quiet serif. Every piece shown at its true proportions, with species and medium beside it.', ...gallery },
+  gallery: { id: 'gallery', tag: 'A', name: 'Gallery', blurb: 'White walls and a quiet serif. Pieces at their true proportions, with species and medium beside each.', ...gallery },
   fieldguide: { id: 'fieldguide', tag: 'B', name: 'Field Guide', blurb: 'Warm paper and numbered plates, organised by family like a naturalist’s reference.', ...fieldguide },
   studio: { id: 'studio', tag: 'C', name: 'Studio', blurb: 'Dark and dramatic, like gallery lighting. Big photography and the process behind each bird.', ...studio },
 } satisfies Record<string, Design>

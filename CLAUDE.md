@@ -20,9 +20,9 @@ This is a Next.js 15 portfolio website for a wood carver artist, using the App R
 
 ### Project Structure
 
-- `src/app/` - App Router routes: home, piece detail (`gallery/[id]`), about, and `/preview` (turns on design review mode). Routes are thin: they pick the active design and render its component.
-- `src/designs/` - One folder per design (`current`, `gallery`, `fieldguide`, `studio`), each exporting `Shell`, `Home`, `About` and `Piece`. `index.ts` is the registry; `content.ts` holds the copy shared by every design; `DesignSwitcher.tsx` is the review bar.
-- `src/components/` - Pieces shared across designs (PieceViewer, NavLinks, InstagramIcon) plus the current design's Header and Footer
+- `src/app/` - App Router routes: home (landing), `gallery` (all work), piece detail (`gallery/[id]`), `process`, `commission`, `about`, and `/preview` (turns on design review mode). Routes are thin: they pick the active design and render its component.
+- `src/designs/` - One folder per design (`current`, `gallery`, `fieldguide`, `studio`), each exporting `Shell`, `Home`, `Gallery`, `Process`, `Commission`, `About` and `Piece`. `index.ts` is the registry; `content.ts` holds the copy shared by every design (bio, process steps, commission text); `commission.ts` is the form's server action; `DesignSwitcher.tsx` is the review bar.
+- `src/components/` - Pieces shared across designs (PieceViewer, CommissionForm, NavLinks, InstagramIcon) plus the current design's Header and Footer
 - `src/data/pieces.ts` - Gallery piece data and categories
 - `src/app/globals.css` - Tailwind base plus the `card` component and the `paper-grain` texture
 
@@ -31,6 +31,8 @@ This is a Next.js 15 portfolio website for a wood carver artist, using the App R
 **Path alias**: Use `@/*` to import from `src/*`
 
 **Design review mode**: The site can render in any of several designs. Visiting `/preview` sets a `preview` cookie that shows a review bar; the bar sets a `design` cookie through server actions in `src/designs/actions.ts`. `getDesign()` reads the cookie in the root layout and every route, falling back to `current` for ordinary visitors. Because the layout reads cookies, all routes render dynamically. The review bar's "Open in email" button addresses the `FEEDBACK_EMAIL` environment variable (blank recipient if unset).
+
+**Commission form**: `CommissionForm` posts to the `submitCommission` server action. With `RESEND_API_KEY` set it emails the request through Resend (to `COMMISSION_EMAIL`, default contact@wildfowlcarver.com, from `COMMISSION_FROM`); without it, the action returns the composed message and the browser opens a `mailto:` link instead, so the form works with no backend.
 
 **Gallery data**: All pieces are defined once in `src/data/pieces.ts`; array order is gallery display order. Each piece records its category, species, medium and the pixel size of every photo, so designs can lay images out at their natural proportions. To add a piece, add its images under `/public/pieces/` and one entry to the array (`npx tsc` will complain until the sizes are filled in).
 

@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { bio, commissions, competitions, honors, portraits, process, site } from '@/designs/content'
+import Link from 'next/link'
+import { bio, commissions, portraits, process, site } from '@/designs/content'
 
 export default function About() {
   return (
@@ -13,17 +14,6 @@ export default function About() {
             <p key={paragraph}>{paragraph}</p>
           ))}
 
-          <div className="!mt-8 border-y-[3px] border-double border-moss-800 py-4">
-            <h2 className="text-[11px] uppercase tracking-[0.25em] text-moss-700">Competition record</h2>
-            <ul className="mt-2 space-y-1 text-sm">
-              {competitions.map((competition) => (
-                <li key={competition.name}>
-                  {competition.name}, <span className="text-moss-700">{competition.place}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-2 text-sm italic text-moss-700">{honors}</p>
-          </div>
         </div>
 
         <div className="space-y-5">
@@ -50,28 +40,34 @@ export default function About() {
           <h2 className="text-2xl font-medium">From the bird to the block</h2>
         </div>
         <p className="mt-3 text-sm italic text-moss-700">How a carving comes about, in six stages.</p>
-        <ol className="mt-6 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
+        <ol className="mt-6 grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-6">
           {process.map((step, index) => (
             <li key={step.src}>
               <div className="border border-paper-400 bg-paper-100 p-1.5">
                 <div className="relative aspect-square">
-                  <Image src={step.src} alt={step.caption} fill sizes="(max-width: 640px) 50vw, 33vw" className="object-cover" />
+                  <Image src={step.src} alt={step.title} fill sizes="(max-width: 640px) 33vw, 16vw" className="object-cover" />
                 </div>
               </div>
-              <p className="mt-2 text-sm leading-snug">
-                <span className="text-rust-700 mr-1.5">Fig. {index + 1}</span>
-                {step.caption}
+              <p className="mt-2 text-xs leading-snug">
+                <span className="text-rust-700 mr-1">Fig. {index + 1}</span>
+                {step.title}
               </p>
             </li>
           ))}
         </ol>
+        <p className="mt-4 text-sm">
+          <Link href="/process" className="text-rust-700 underline underline-offset-4 decoration-paper-400 hover:decoration-rust-700">Read the method in full</Link>
+        </p>
       </section>
 
       <section id="contact" className="mt-12 lg:mt-16 scroll-mt-6">
         <div className="border-b-[3px] border-double border-moss-800 pb-2">
           <h2 className="text-2xl font-medium">Contact</h2>
         </div>
-        <p className="mt-4 max-w-prose text-[15px] leading-relaxed text-moss-800">{commissions}</p>
+        <p className="mt-4 max-w-prose text-[15px] leading-relaxed text-moss-800">{commissions.lead}</p>
+        <p className="mt-4">
+          <Link href="/commission" className="inline-block border-2 border-moss-800 px-5 py-2.5 text-sm font-medium hover:bg-moss-800 hover:text-paper-50 transition-colors">Commission a piece</Link>
+        </p>
         <p className="mt-4 text-[15px]">
           <a href={`mailto:${site.email}`} className="text-rust-700 underline underline-offset-4 decoration-paper-400 hover:decoration-rust-700">{site.email}</a>
           <br />

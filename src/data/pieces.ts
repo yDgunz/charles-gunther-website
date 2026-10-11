@@ -238,6 +238,13 @@ export const pieces: Piece[] = [
   },
 ]
 
+/** Pieces shown on landing pages, strongest photographs first. */
+export const featuredIds = ['screech_owl', 'blue_wing_teal', 'great_horned_owl', 'wigeon', 'canada_goose', 'screech_owl_3']
+
+export function featuredPieces(): Piece[] {
+  return featuredIds.map((id) => getPiece(id)!)
+}
+
 export function getPiece(id: string): Piece | undefined {
   return pieces.find((piece) => piece.id === id)
 }
