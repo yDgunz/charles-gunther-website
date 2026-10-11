@@ -22,7 +22,7 @@ export default function PiecePage({ piece }: { piece: Piece }) {
 
   return (
     <div className="max-w-8xl mx-auto px-5 md:px-8 py-6 md:py-12">
-      <Link href={`/#${category.id}`} className="text-sm text-coal-400 hover:text-white transition-colors">
+      <Link href={`/gallery#${category.id}`} className="text-sm text-coal-400 hover:text-white transition-colors">
         &larr; {category.name}
       </Link>
 

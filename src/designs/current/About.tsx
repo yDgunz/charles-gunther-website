@@ -35,7 +35,7 @@ export default function AboutPage() {
                 His passion for wildfowl traces back to a childhood immersed in nature, while his artistic sensibility was shaped by his father, an artist working in flat work and mixed media.
               </p>
               <p>
-                A former competitor at prestigious events including Stone Harbor&rsquo;s Wings and Water Festival and the Ward Foundation World Championships in Ocean City, Maryland, Charles has earned best of division and best of show honors at both open and professional levels.
+                He competed for many years at Stone Harbor&rsquo;s Wings and Water Festival and the Ward Foundation World Championships in Ocean City, Maryland.
               </p>
               <p>
                 Today he focuses on creating pieces for private collections. Each sculpture begins with careful research and observation, capturing the essence of each bird through patient, meticulous craftsmanship.

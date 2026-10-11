@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { bio, commissions, competitions, honors, portraits, process, site } from '@/designs/content'
+import Link from 'next/link'
+import { bio, commissions, portraits, process, site } from '@/designs/content'
 
 export default function About() {
   return (
@@ -18,18 +19,6 @@ export default function About() {
             ))}
           </div>
 
-          <div className="mt-10 border-t border-white/10 pt-6">
-            <h2 className="text-[11px] uppercase tracking-[0.3em] text-brass-400">Competition</h2>
-            <ul className="mt-4 space-y-2 text-sm">
-              {competitions.map((competition) => (
-                <li key={competition.name} className="flex flex-wrap justify-between gap-x-4">
-                  <span>{competition.name}</span>
-                  <span className="text-coal-400">{competition.place}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-3 text-sm text-coal-300">{honors}</p>
-          </div>
         </div>
 
         <div className="lg:col-span-5 space-y-4 md:space-y-6">
@@ -51,24 +40,26 @@ export default function About() {
         <div className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-4">
           <h2 className="font-fraunces text-3xl md:text-4xl">From the bird to the block</h2>
         </div>
-        <ol className="mt-6 md:mt-8 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <ol className="mt-6 md:mt-8 grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-5">
           {process.map((step, index) => (
             <li key={step.src}>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-coal-900">
-                <Image src={step.src} alt={step.caption} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
+              <div className="relative aspect-square overflow-hidden rounded-sm bg-coal-900">
+                <Image src={step.src} alt={step.title} fill sizes="(max-width: 768px) 33vw, 16vw" className="object-cover" />
               </div>
-              <p className="mt-3 text-sm leading-snug text-coal-300">
-                <span className="text-brass-400 mr-1.5">{String(index + 1).padStart(2, '0')}</span>
-                {step.caption}
+              <p className="mt-2 text-xs leading-snug text-coal-300">
+                <span className="text-brass-400 mr-1">{String(index + 1).padStart(2, '0')}</span>
+                {step.title}
               </p>
             </li>
           ))}
         </ol>
+        <Link href="/process" className="mt-6 inline-block text-sm text-white hover:text-brass-300 transition-colors">Read about the process &rarr;</Link>
       </section>
 
       <section id="contact" className="mt-20 md:mt-32 scroll-mt-20">
         <p className="text-[11px] uppercase tracking-[0.3em] text-brass-400">Commissions</p>
-        <p className="mt-4 max-w-prose text-[15px] md:text-lg leading-relaxed text-coal-200">{commissions}</p>
+        <p className="mt-4 max-w-prose text-[15px] md:text-lg leading-relaxed text-coal-200">{commissions.lead}</p>
+        <Link href="/commission" className="mt-6 inline-block border border-white/20 px-5 py-2.5 text-sm hover:border-brass-400 hover:text-brass-300 transition-colors">Commission a piece</Link>
         <p className="mt-4 text-sm text-coal-400">
           Or on Instagram, <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" className="text-coal-200 hover:text-white">@{site.instagram}</a>.
         </p>

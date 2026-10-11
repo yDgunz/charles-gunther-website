@@ -9,36 +9,73 @@ export const site = {
   instagramUrl: 'https://instagram.com/wildfowlcarver',
 }
 
+/** The one-line statement used on landing pages. */
+export const statement = 'Decorative wildfowl carvings, made to commission.'
+
+export const intro =
+  'Waterfowl, birds of prey and songbirds, carved in tupelo and painted from living birds. Charles Gunther has worked from his New Jersey studio for more than thirty years, and takes a small number of commissions each year.'
+
 export const bio = [
   'Charles Gunther is a New Jersey wood carver specializing in decorative wildfowl sculpture. For over three decades he has carved waterfowl, birds of prey and songbirds, each piece cut from tupelo and finished in oil or acrylic.',
-  'His interest in wildfowl goes back to a childhood spent outdoors, and his eye to his father, an artist working in flat work and mixed media.',
-  'A former competitor at Stone Harbor’s Wings ’n’ Water Festival and the Ward World Championship in Ocean City, Maryland, Charles has earned Best of Division and Best of Show honors at both the open and professional levels.',
+  'His interest in wildfowl goes back to a childhood spent outdoors, and his eye to his father, an artist working in flat work and mixed media. He competed for many years at the Ward World Championship in Ocean City, Maryland and at Stone Harbor’s Wings ’n’ Water Festival.',
   'Today he works in the studio on pieces for commission and for private collections. Every sculpture starts with research and time spent with the living bird, a habit that led him to build and keep a personal aviary of North American migratory waterfowl.',
 ]
 
 export const pullQuote =
   'Every sculpture starts with time spent with the living bird.'
 
-export const competitions = [
-  { name: 'Ward World Championship', place: 'Ocean City, Maryland' },
-  { name: 'Wings ’n’ Water Festival', place: 'Stone Harbor, New Jersey' },
-]
+export const commissions = {
+  heading: 'Commission a piece',
+  lead: 'Most of Charles’s work is now made to order: a particular bird, in a particular pose, for a particular place. Tell him what you have in mind and he will come back to you to talk it through.',
+  howItWorks: [
+    { title: 'Tell Charles about the bird', body: 'The species, and anything you already know about the pose, the size or where the piece will live. A photograph of the setting helps.' },
+    { title: 'Talk it through', body: 'Charles replies by email to discuss the options: a standing or swimming bird, lifesize or smaller, a driftwood perch or a carved habitat base. He will give a price and a rough timeline at this stage.' },
+    { title: 'Study and carving', body: 'Once agreed, the piece follows the process shown on the site, from time with the living bird through sketches, carving, texturing and paint. Charles sends photographs as it comes along.' },
+    { title: 'Delivery', body: 'Finished pieces are collected from the studio or carefully packed and shipped.' },
+  ],
+  note: 'Pricing depends on the species, the size of the carving and the base. Each piece takes several months.',
+}
 
-export const honors = 'Best of Division and Best of Show, open and professional levels'
-
-export const commissions =
-  'Pieces are available for private collections and by commission. Get in touch to ask about a particular bird or a piece currently in the studio.'
-
-export type ProcessStep = { src: string; width: number; height: number; caption: string }
+export type ProcessStep = {
+  src: string
+  width: number
+  height: number
+  title: string
+  body: string
+}
 
 /** The making of a bird, from the live subject to the finished carving. */
 export const process: ProcessStep[] = [
-  { src: '/images/in_progress/1.jpg', width: 393, height: 393, caption: 'Time with the living bird' },
-  { src: '/images/in_progress/2.jpg', width: 480, height: 480, caption: 'Working out the pose on paper' },
-  { src: '/images/in_progress/3.jpg', width: 480, height: 480, caption: 'A head study to get the expression right' },
-  { src: '/images/in_progress/5.jpg', width: 3264, height: 2448, caption: 'Blocking out the form in tupelo' },
-  { src: '/images/in_progress/4.jpg', width: 2448, height: 3264, caption: 'Roughing out the body' },
-  { src: '/images/in_progress/7.jpg', width: 2448, height: 3264, caption: 'Carved and textured, before paint' },
+  {
+    src: '/images/in_progress/1.jpg', width: 393, height: 393,
+    title: 'Time with the living bird',
+    body: 'Every piece begins with the bird itself: watching how it stands, swims and turns its head, and photographing it from every angle. Charles keeps an aviary of North American waterfowl for exactly this reason.',
+  },
+  {
+    src: '/images/in_progress/2.jpg', width: 480, height: 480,
+    title: 'Working out the pose on paper',
+    body: 'Sketches settle the attitude of the bird and its proportions before any wood is cut. The pose is chosen to suit where the finished piece will live.',
+  },
+  {
+    src: '/images/in_progress/3.jpg', width: 480, height: 480,
+    title: 'A head study',
+    body: 'The character of a bird lives in its head: the set of the eye, the line of the bill. A separate study gets this right before the full carving is started.',
+  },
+  {
+    src: '/images/in_progress/5.jpg', width: 3264, height: 2448,
+    title: 'Blocking out the form in tupelo',
+    body: 'The carving is cut from tupelo, a light, fine-grained wood that holds detail. The main masses of body, neck and head are established first.',
+  },
+  {
+    src: '/images/in_progress/4.jpg', width: 2448, height: 3264,
+    title: 'Roughing out the body',
+    body: 'Knives and rotary tools refine the shape, then the feather groups are laid out and each feather is carved and textured so that it reads under paint.',
+  },
+  {
+    src: '/images/in_progress/7.jpg', width: 2448, height: 3264,
+    title: 'Carved and textured, before paint',
+    body: 'The finished carving is sealed and painted in thin layers of oil or acrylic, then mounted on a driftwood perch or a carved habitat base.',
+  },
 ]
 
 export const portraits = {

@@ -12,9 +12,10 @@ const cormorant = Cormorant_Garamond({
 })
 
 const navigation = [
-  { name: 'Work', href: '/' },
+  { name: 'Work', href: '/gallery' },
+  { name: 'Process', href: '/process' },
+  { name: 'Commission', href: '/commission' },
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/about#contact' },
 ]
 
 export default function Shell({ children }: { children: ReactNode }) {
@@ -30,7 +31,7 @@ export default function Shell({ children }: { children: ReactNode }) {
               Wildfowl Sculpture &middot; {site.location}
             </span>
           </Link>
-          <nav className="mt-5 md:mt-7 flex justify-center gap-7 md:gap-10 text-[11px] uppercase tracking-[0.22em]">
+          <nav className="mt-5 md:mt-7 flex justify-center gap-5 sm:gap-7 md:gap-10 text-[11px] uppercase tracking-[0.22em]">
             <NavLinks
               items={navigation}
               className="pb-1 border-b border-transparent text-ink-600 hover:text-ink-900 transition-colors"

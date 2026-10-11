@@ -13,8 +13,9 @@ const lora = Lora({
 })
 
 const pages = [
+  { name: 'The method', href: '/process' },
+  { name: 'Commissions', href: '/commission' },
   { name: 'About the carver', href: '/about' },
-  { name: 'Contact', href: '/about#contact' },
 ]
 
 export default function Shell({ children }: { children: ReactNode }) {
@@ -32,10 +33,15 @@ export default function Shell({ children }: { children: ReactNode }) {
 
             <nav className="mt-4 lg:mt-10 -mx-5 px-5 lg:mx-0 lg:px-0 flex lg:flex-col [mask-image:linear-gradient(to_right,black_calc(100%-2.5rem),transparent)] lg:[mask-image:none] gap-x-5 gap-y-2 overflow-x-auto whitespace-nowrap text-[13px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:whitespace-normal">
               <span className="hidden lg:block text-[10px] uppercase tracking-[0.25em] text-moss-700 mb-1">Contents</span>
+              <NavLinks
+                items={[{ name: 'Introduction', href: '/' }]}
+                className="text-moss-800 hover:text-rust-700"
+                activeClassName="!text-rust-700"
+              />
               {categories.map((category) => (
                 <Link
                   key={category.id}
-                  href={`/#${category.id}`}
+                  href={`/gallery#${category.id}`}
                   className="flex items-baseline gap-2 text-moss-800 hover:text-rust-700"
                 >
                   <span>{category.name}</span>

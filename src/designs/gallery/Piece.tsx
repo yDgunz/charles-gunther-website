@@ -20,7 +20,7 @@ export default function PiecePage({ piece }: { piece: Piece }) {
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-8 md:py-14">
-      <Link href="/" className="text-[11px] uppercase tracking-[0.2em] text-ink-500 hover:text-ink-900">
+      <Link href="/gallery" className="text-[11px] uppercase tracking-[0.2em] text-ink-500 hover:text-ink-900">
         &larr; Work
       </Link>
 
