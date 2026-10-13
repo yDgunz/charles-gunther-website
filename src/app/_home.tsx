@@ -1,13 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { featuredPieces } from '@/data/pieces'
-import { commissions, intro, portraits, process, pullQuote, statement } from '@/designs/content'
-import WorkCard from './WorkCard'
+import { inquiries, intro, portraits, process, pullQuote } from '@/content'
+import WorkCard from '@/components/WorkCard'
 
 const hero = { src: '/pieces/decorative/blue_wing_teal/1.jpg', width: 4032, height: 3024 }
 
-const primary = 'inline-block bg-coal-100 text-coal-950 px-5 py-2.5 text-sm font-medium hover:bg-white transition-colors'
-const secondary = 'inline-block border border-white/20 px-5 py-2.5 text-sm hover:border-brass-400 hover:text-brass-300 transition-colors'
 
 export default function Home() {
   return (
@@ -19,13 +17,12 @@ export default function Home() {
             <h1 className="mt-4 font-fraunces text-[2.75rem] leading-[0.95] sm:text-6xl md:text-7xl">
               Carved in tupelo.
               <br />
-              <em className="font-light text-coal-300">Made to commission.</em>
+              <em className="font-light text-coal-300">Painted from life.</em>
             </h1>
             <p className="mt-6 max-w-md text-[15px] md:text-base leading-relaxed text-coal-300">{intro}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/commission" className={primary}>Commission a piece</Link>
-              <Link href="/gallery" className={secondary}>See the work</Link>
-            </div>
+            <Link href="/gallery" className="mt-8 inline-flex items-center gap-2 text-sm text-white hover:text-brass-300 transition-colors">
+              See the work <span aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
           <div className="lg:col-span-7 order-1 lg:order-2 relative">
             <Image
@@ -85,17 +82,22 @@ export default function Home() {
             className="w-full h-auto rounded-sm"
           />
           <div>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-brass-400">{commissions.heading}</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-brass-400">The carver</p>
             <blockquote className="mt-4 font-fraunces text-3xl md:text-4xl leading-tight">
               &ldquo;{pullQuote}&rdquo;
             </blockquote>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-coal-300">{commissions.lead}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/commission" className={primary}>Start a conversation</Link>
-              <Link href="/about" className={secondary}>About Charles</Link>
-            </div>
+            <Link href="/about" className="mt-6 inline-block text-sm text-white hover:text-brass-300 transition-colors">
+              About Charles <span aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
         </div>
+      </section>
+
+      <section className="max-w-8xl mx-auto px-5 md:px-8 mt-20 md:mt-32">
+        <p className="max-w-md text-sm leading-relaxed text-coal-400">
+          {inquiries.aside}{' '}
+          <Link href="/commission" className="text-coal-200 hover:text-white transition-colors">Inquiries &rarr;</Link>
+        </p>
       </section>
     </>
   )

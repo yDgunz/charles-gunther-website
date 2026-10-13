@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { bio, commissions, portraits, process, site } from '@/designs/content'
+import { bio, inquiries, portraits, process, site } from '@/content'
 
 export default function About() {
   return (
@@ -57,11 +57,15 @@ export default function About() {
       </section>
 
       <section id="contact" className="mt-20 md:mt-32 scroll-mt-20">
-        <p className="text-[11px] uppercase tracking-[0.3em] text-brass-400">Commissions</p>
-        <p className="mt-4 max-w-prose text-[15px] md:text-lg leading-relaxed text-coal-200">{commissions.lead}</p>
-        <Link href="/commission" className="mt-6 inline-block border border-white/20 px-5 py-2.5 text-sm hover:border-brass-400 hover:text-brass-300 transition-colors">Commission a piece</Link>
-        <p className="mt-4 text-sm text-coal-400">
-          Or on Instagram, <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" className="text-coal-200 hover:text-white">@{site.instagram}</a>.
+        <p className="text-[11px] uppercase tracking-[0.3em] text-brass-400">Contact</p>
+        <p className="mt-4 max-w-prose text-[15px] md:text-lg leading-relaxed text-coal-200">
+          <a href={`mailto:${site.email}`} className="hover:text-brass-300 transition-colors">{site.email}</a>
+          <br />
+          <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-brass-300 transition-colors">Instagram @{site.instagram}</a>
+        </p>
+        <p className="mt-6 max-w-md text-sm leading-relaxed text-coal-400">
+          {inquiries.aside}{' '}
+          <Link href="/commission" className="text-coal-200 hover:text-white transition-colors">Inquiries &rarr;</Link>
         </p>
       </section>
     </div>

@@ -1,84 +1,29 @@
-'use client'
-
 import Link from 'next/link'
-import { useState } from 'react'
+import NavLinks from '@/components/NavLinks'
+import { site } from '@/content'
 
 const navigation = [
-  { name: 'Gallery', href: '/' },
+  { name: 'Work', href: '/gallery' },
   { name: 'Process', href: '/process' },
-  { name: 'Commission', href: '/commission' },
   { name: 'About', href: '/about' },
+  { name: 'Inquiries', href: '/commission' },
 ]
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
   return (
-    <header className="bg-bark-900 text-cream-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <span className="text-base font-display font-thin tracking-tight">
-              Wildfowl Carvings by Charles Gunther
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-cream-100 hover:text-white transition-colors font-medium"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            className="md:hidden p-2"
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div id="mobile-menu" className="md:hidden py-4 border-t border-bark-800">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block py-3 text-cream-100 hover:text-white transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        )}
-      </nav>
+    <header className="sticky top-0 z-40 bg-coal-950/85 backdrop-blur border-b border-white/5">
+      <div className="max-w-8xl mx-auto px-5 md:px-8 h-14 md:h-16 flex items-center justify-between">
+        <Link href="/" className="font-fraunces text-base md:text-lg tracking-tight whitespace-nowrap">
+          {site.name} <span className="hidden sm:inline text-coal-400 font-light">/ Wildfowl</span>
+        </Link>
+        <nav className="flex gap-3 sm:gap-5 md:gap-8 text-xs sm:text-sm">
+          <NavLinks
+            items={navigation}
+            className="text-coal-300 hover:text-white transition-colors"
+            activeClassName="!text-white"
+          />
+        </nav>
+      </div>
     </header>
   )
 }

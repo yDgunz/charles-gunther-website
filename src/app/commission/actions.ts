@@ -1,6 +1,6 @@
 'use server'
 
-import { site } from '@/designs/content'
+import { site } from '@/content'
 
 export type CommissionRequest = {
   name: string
@@ -20,7 +20,7 @@ function field(formData: FormData, name: string): string {
 }
 
 function formatRequest(request: CommissionRequest): { subject: string; body: string } {
-  const subject = `Commission inquiry from ${request.name}`
+  const subject = `Inquiry from ${request.name}`
   const body = [`Name: ${request.name}`, `Email: ${request.email}`, '', request.message].join('\n')
   return { subject, body }
 }
@@ -38,7 +38,7 @@ export async function submitCommission(formData: FormData): Promise<CommissionRe
   }
 
   if (!request.name || !request.email || !request.message) {
-    return { status: 'error', message: 'Please fill in your name, your email and a few words about the piece.' }
+    return { status: 'error', message: 'Please fill in your name, your email and a few words about what you have in mind.' }
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(request.email)) {
     return { status: 'error', message: 'That email address does not look right.' }

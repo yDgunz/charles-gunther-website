@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import PieceViewer from '@/components/PieceViewer'
 import { getCategory, piecesInCategory, type Piece } from '@/data/pieces'
-import { site } from '@/designs/content'
+import { site } from '@/content'
 
 const viewer = {
   frame: 'relative w-full overflow-hidden rounded-sm bg-coal-900',
@@ -52,9 +52,9 @@ export default function PiecePage({ piece }: { piece: Piece }) {
 
           <a
             href={`mailto:${site.email}?subject=${subject}`}
-            className="mt-8 inline-block border border-white/20 px-5 py-2.5 text-sm hover:border-brass-400 hover:text-brass-300 transition-colors"
+            className="mt-6 inline-block text-sm text-coal-400 hover:text-white transition-colors"
           >
-            Ask about this piece
+            Inquire about this piece &rarr;
           </a>
         </aside>
       </div>

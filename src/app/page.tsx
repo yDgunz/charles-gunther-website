@@ -1,6 +1,5 @@
-import { getDesign } from '@/designs'
+import Home from './_home'
 
-export default async function HomePage() {
-  const { Home } = await getDesign()
+export default function HomePage() {
   return <Home />
 }

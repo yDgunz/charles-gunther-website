@@ -1,13 +1,21 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Fraunces, Inter } from 'next/font/google'
 import './globals.css'
-import { designList, getDesign, isPreview } from '@/designs'
-import DesignSwitcher from '@/designs/DesignSwitcher'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['100', '400', '500'],
+  weight: ['400', '500'],
   variable: '--font-inter',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: 'variable',
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
+  variable: '--font-fraunces',
 })
 
 export const metadata: Metadata = {
@@ -18,25 +26,17 @@ export const metadata: Metadata = {
   description: 'Decorative wildfowl carvings by Charles Gunther, a New Jersey wood carver: waterfowl, birds of prey, and songbirds.',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [design, preview] = await Promise.all([getDesign(), isPreview()])
-  const { Shell } = design
-
   return (
-    <html lang="en" className={inter.variable}>
-      <body className={preview ? 'pb-24' : undefined}>
-        <Shell>{children}</Shell>
-        {preview && (
-          <DesignSwitcher
-            options={designList.map(({ id, tag, name, blurb }) => ({ id, tag, name, blurb }))}
-            activeId={design.id}
-            feedbackEmail={process.env.FEEDBACK_EMAIL ?? ''}
-          />
-        )}
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="min-h-screen flex flex-col bg-coal-950 text-coal-100">
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   )
