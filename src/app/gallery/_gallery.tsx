@@ -1,6 +1,5 @@
-import Link from 'next/link'
 import { categories, pieces, piecesInCategory } from '@/data/pieces'
-import WorkCard from './WorkCard'
+import WorkCard from '@/components/WorkCard'
 
 export default function Gallery() {
   return (
@@ -9,10 +8,6 @@ export default function Gallery() {
         <h1 className="font-fraunces text-3xl md:text-4xl">Work</h1>
         <span className="text-sm text-coal-400">{pieces.length} pieces</span>
       </div>
-      <p className="mt-4 max-w-md text-[15px] leading-relaxed text-coal-300">
-        Most of Charles&rsquo;s work is now made to order.{' '}
-        <Link href="/commission" className="text-white hover:text-brass-300 transition-colors">Commission a piece &rarr;</Link>
-      </p>
 
       {categories.map((category) => {
         const group = piecesInCategory(category.id)

@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
-import { getDesign } from '@/designs'
+import Commission from './_commission'
 
 export const metadata: Metadata = {
-  title: 'Commission a piece',
-  description: 'Commission a decorative wildfowl carving from Charles Gunther.',
+  title: 'Inquiries',
+  description: 'Inquire about a decorative wildfowl carving from Charles Gunther.',
 }
 
-export default async function CommissionPage() {
-  const { Commission } = await getDesign()
+export default function CommissionPage() {
   return <Commission />
 }

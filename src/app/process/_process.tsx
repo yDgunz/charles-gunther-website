@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { process, pullQuote } from '@/designs/content'
+import { inquiries, process, pullQuote } from '@/content'
 
 export default function ProcessPage() {
   return (
@@ -29,8 +29,10 @@ export default function ProcessPage() {
       </ol>
 
       <div className="mt-16 md:mt-28 border-t border-white/10 pt-8">
-        <p className="max-w-xl font-fraunces text-2xl md:text-3xl leading-tight">A commissioned piece follows the same path, with photographs along the way.</p>
-        <Link href="/commission" className="mt-6 inline-block bg-coal-100 text-coal-950 px-5 py-2.5 text-sm font-medium hover:bg-white transition-colors">Commission a piece</Link>
+        <p className="max-w-md text-sm leading-relaxed text-coal-400">
+          {inquiries.aside}{' '}
+          <Link href="/commission" className="text-coal-200 hover:text-white transition-colors">Inquiries &rarr;</Link>
+        </p>
       </div>
     </div>
   )

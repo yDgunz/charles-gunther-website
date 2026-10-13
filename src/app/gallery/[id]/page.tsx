@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getDesign } from '@/designs'
 import { getPiece, pieces } from '@/data/pieces'
+import Piece from './_piece'
 
 type PiecePageProps = {
   params: Promise<{ id: string }>
@@ -27,6 +27,5 @@ export default async function PiecePage({ params }: PiecePageProps) {
     notFound()
   }
 
-  const { Piece } = await getDesign()
   return <Piece piece={piece} />
 }

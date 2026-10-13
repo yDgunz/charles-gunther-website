@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
-import { getDesign } from '@/designs'
+import Process from './_process'
 
 export const metadata: Metadata = {
   title: 'Process',
   description: 'How a Charles Gunther carving is made, from time with the living bird to the finished, painted piece.',
 }
 
-export default async function ProcessPage() {
-  const { Process } = await getDesign()
+export default function ProcessPage() {
   return <Process />
 }

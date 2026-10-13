@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { submitCommission } from '@/designs/commission'
+import { submitCommission } from '@/app/commission/actions'
 
 export type FormStyles = {
   label: string
@@ -44,10 +44,10 @@ export default function CommissionForm({ styles, contactEmail }: { styles: FormS
     return (
       <div className={styles.success} role="status">
         {done === 'sent' ? (
-          <p>Thank you. Your request has been sent, and Charles will reply by email.</p>
+          <p>Thank you. Your message has been sent, and Charles will reply by email.</p>
         ) : (
           <p>
-            Your mail app should have opened with the request written out. If it did not, email Charles at{' '}
+            Your mail app should have opened with the message written out. If it did not, email Charles at{' '}
             <a href={`mailto:${contactEmail}`} className="underline underline-offset-2">{contactEmail}</a>.
           </p>
         )}
@@ -74,7 +74,7 @@ export default function CommissionForm({ styles, contactEmail }: { styles: FormS
           name="message"
           rows={6}
           required
-          placeholder="The bird, the pose you picture, roughly how large, where it will live, and when you would like it."
+          placeholder="The bird you have in mind, and anything you already know about the pose, the size or where it will live."
           className={styles.input}
         />
       </div>
@@ -83,7 +83,7 @@ export default function CommissionForm({ styles, contactEmail }: { styles: FormS
 
       <div>
         <button type="submit" disabled={pending} className={styles.button}>
-          {pending ? 'Sending…' : 'Send the request'}
+          {pending ? 'Sending…' : 'Send'}
         </button>
         <p className={styles.note}>
           Or email Charles directly at <a href={`mailto:${contactEmail}`} className="underline underline-offset-2">{contactEmail}</a>.

@@ -9,11 +9,8 @@ export const site = {
   instagramUrl: 'https://instagram.com/wildfowlcarver',
 }
 
-/** The one-line statement used on landing pages. */
-export const statement = 'Decorative wildfowl carvings, made to commission.'
-
 export const intro =
-  'Waterfowl, birds of prey and songbirds, carved in tupelo and painted from living birds. Charles Gunther has worked from his New Jersey studio for more than thirty years, and takes a small number of commissions each year.'
+  'Waterfowl, birds of prey and songbirds, carved in tupelo and painted from living birds. Charles Gunther has worked from his New Jersey studio for more than thirty years.'
 
 export const bio = [
   'Charles Gunther is a New Jersey wood carver specializing in decorative wildfowl sculpture. For over three decades he has carved waterfowl, birds of prey and songbirds, each piece cut from tupelo and finished in oil or acrylic.',
@@ -24,16 +21,13 @@ export const bio = [
 export const pullQuote =
   'Every sculpture starts with time spent with the living bird.'
 
-export const commissions = {
-  heading: 'Commission a piece',
-  lead: 'Most of Charles’s work is now made to order: a particular bird, in a particular pose, for a particular place. Tell him what you have in mind and he will come back to you to talk it through.',
-  howItWorks: [
-    { title: 'Tell Charles about the bird', body: 'The species, and anything you already know about the pose, the size or where the piece will live. A photograph of the setting helps.' },
-    { title: 'Talk it through', body: 'Charles replies by email to discuss the options: a standing or swimming bird, lifesize or smaller, a driftwood perch or a carved habitat base. He will give a price and a rough timeline at this stage.' },
-    { title: 'Study and carving', body: 'Once agreed, the piece follows the process shown on the site, from time with the living bird through sketches, carving, texturing and paint. Charles sends photographs as it comes along.' },
-    { title: 'Delivery', body: 'Finished pieces are collected from the studio or carefully packed and shipped.' },
-  ],
-  note: 'Pricing depends on the species, the size of the carving and the base. Each piece takes several months.',
+export const inquiries = {
+  heading: 'Inquiries',
+  lead: 'Charles takes on a small number of commissions each year, and occasionally has finished pieces available. If you have a particular bird in mind, write with a few details and he will reply by email.',
+  expect:
+    'Price and timing depend on the species, the size of the carving and the base, and are worked out by email. A new piece takes several months, and Charles sends photographs as it comes along.',
+  /** The quiet line used at the foot of other pages */
+  aside: 'Charles takes on a small number of commissions each year.',
 }
 
 export type ProcessStep = {
